@@ -23,7 +23,9 @@ public class StringComparator {
 		});
 		*/
 		
-		Collections.sort(names, (o1,o2) -> o2.compareTo(o1));
+		//expression o2.compareTo(o1)
+		//statement {return o2.compareTo(o1);}
+		Collections.sort(names, (o1,o2) -> {return o2.compareTo(o1);});
 		
 		System.out.println(names);
 		
