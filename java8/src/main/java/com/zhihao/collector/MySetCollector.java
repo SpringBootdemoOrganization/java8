@@ -22,6 +22,7 @@ public class MySetCollector<T> implements Collector<T,Set<T>,Set<T>>{
         return Set<T>::add;
     }
 
+    //只有并发的时候才去调用
     @Override
     public BinaryOperator<Set<T>> combiner() {
         System.out.println("BinaryOperator invoke!");
@@ -31,7 +32,7 @@ public class MySetCollector<T> implements Collector<T,Set<T>,Set<T>>{
         };
     }
 
-    //因为我们这边的最终的返回结果类型和中间容器的类型是一致的
+    //因为我们这边的最终的返回结果类型和中间容器的类型是一致的，也可以抛出异常
     @Override
     public Function<Set<T>, Set<T>> finisher() {
         System.out.println("finisher invoke!");
