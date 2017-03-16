@@ -63,7 +63,7 @@ public class MySetCollector2<T> implements Collector<T,Set<T>,Map<T,T>>{
 
         //当前主机的核心数（使用了超线程，一个内核通常被当作二个核心数来处理）
         System.out.println(Runtime.getRuntime().availableProcessors());
-        for (int i = 0; i <100 ; i++) {
+        for (int i = 0; i <1 ; i++) {
             List<String> list = Arrays.asList("hello","world","hello world","hello","a","b","f","e","k","j","q");
             //System.out.println(list);
             Set<String> set = new HashSet<>();
@@ -71,8 +71,8 @@ public class MySetCollector2<T> implements Collector<T,Set<T>,Map<T,T>>{
 
             System.out.println(set);
 
-            //Map<String,String> map = list.stream().collect(new MySetCollector2<>());
-            Map<String,String> map = list.parallelStream().collect(new MySetCollector2<>());
+            Map<String,String> map = list.stream().collect(new MySetCollector2<>());
+            //Map<String,String> map = list.parallelStream().collect(new MySetCollector2<>());
             System.out.println(map);
         }
 
