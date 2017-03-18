@@ -6,11 +6,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * ĞèÇóÊÇÕâÑùµÄ£¬½«listÖĞµÄÔªËØÒÀ´ÎÓëlist2µÄÔªËØ½áºÏÆğÀ´¡£Õâ±ßÓÃµ½ÁËflatMapº¯Êı£¬ºÜ³éÏóµÄ×ö·¨£¬²»¹ıºÜ¼òµ¥
+ * éœ€æ±‚æ˜¯è¿™æ ·çš„ï¼Œå°†listä¸­çš„å…ƒç´ ä¾æ¬¡ä¸list2çš„å…ƒç´ ç»“åˆèµ·æ¥ã€‚è¿™è¾¹ç”¨åˆ°äº†flatMapå‡½æ•°ï¼Œå¾ˆæŠ½è±¡çš„åšæ³•ï¼Œä¸è¿‡å¾ˆç®€å•
  */
 public class Stream01 {
     public static void main(String[] args) {
-        List<String> list = Arrays.asList("Hi","Hello","ÄãºÃ");
+        List<String> list = Arrays.asList("Hi","Hello","ä½ å¥½");
         List<String> list2 = Arrays.asList("zhangsan","lisi","wangwu","zhaoliu");
 
         /*

@@ -16,8 +16,8 @@ public class Stream06 {
 
 //        list.stream().mapToInt(item -> item.length()).filter(length -> length ==5).limit(1).findFirst().ifPresent(System.out::println);
 
-        //Á÷´æÔÚ¶ÌÂ·ÔËËãµÄ£¬Ö»ÒªÕÒµ½·ûºÏÌõ¼þµÄÔªËØ¾Í»á·¢Éú¶ÌÂ·£¬ÏÂÃæ²»Ö´ÐÐÁË£¬ËùÒÔÕâÀïµÄitem´òÓ¡³öÀ´µÄÊÇhello1,world,È»ºóÔÚworldÕâ±ßÕÒµ½¸´ºÏÌõ¼þµÄ
-        //ÔªËØ·¢Éú¶ÌÂ·²»ÍùÏÂÖ´ÐÐÁË
+        //æµå­˜åœ¨çŸ­è·¯è¿ç®—çš„ï¼Œåªè¦æ‰¾åˆ°ç¬¦åˆæ¡ä»¶çš„å…ƒç´ å°±ä¼šå‘ç”ŸçŸ­è·¯ï¼Œä¸‹é¢ä¸æ‰§è¡Œäº†ï¼Œæ‰€ä»¥è¿™é‡Œçš„itemæ‰“å°å‡ºæ¥çš„æ˜¯hello1,world,ç„¶åŽåœ¨worldè¿™è¾¹æ‰¾åˆ°å¤åˆæ¡ä»¶çš„
+        //å…ƒç´ å‘ç”ŸçŸ­è·¯ä¸å¾€ä¸‹æ‰§è¡Œäº†
         list.stream().mapToInt(item -> {
             int length = item.length();
             System.out.println(item);
@@ -25,3 +25,4 @@ public class Stream06 {
         }).filter(length -> length ==5).limit(1).findFirst().ifPresent(System.out::println);
     }
 }
+

@@ -8,10 +8,10 @@ public class Stream02 {
 //        System.out.println(stream);
 //        System.out.println(stream.filter(i -> i> 2));
         //Exception in thread "main" java.lang.IllegalStateException: stream has already been operated upon or closed
-        //ÊÇÒòÎªstreamÒÑ¾­ÔÚÊ¹ÓÃÁË£¬ËùÒÔ²»ÄÜÔÚÊ¹ÓÃÁË£¬»¹ÓÐÒ»ÖÖÇé¿öÒ²ÊÇstream²»ÄÜÊ¹ÓÃ£¬¾ÍÊÇstream¹Ø±ÕÁËÊ±ºò
+        //æ˜¯å› ä¸ºstreamå·²ç»åœ¨ä½¿ç”¨äº†ï¼Œæ‰€ä»¥ä¸èƒ½åœ¨ä½¿ç”¨äº†ï¼Œè¿˜æœ‰ä¸€ç§æƒ…å†µä¹Ÿæ˜¯streamä¸èƒ½ä½¿ç”¨ï¼Œå°±æ˜¯streamå…³é—­äº†æ—¶å€™
 //        System.out.println(stream.distinct());
 
-        //ÏÂÃæµÄÐ´·¨¾ÍÊÇÕýÈ·µÄ£¬²»¹ý»¹ÊÇÖ§³ÖÊ¹ÓÃÁ´Ê½±à³Ì
+        //ä¸‹é¢çš„å†™æ³•å°±æ˜¯æ­£ç¡®çš„ï¼Œä¸è¿‡è¿˜æ˜¯æ”¯æŒä½¿ç”¨é“¾å¼ç¼–ç¨‹
         System.out.println(stream);
         Stream stream2 = stream.filter(i -> i >2);
         System.out.println(stream2);
@@ -20,3 +20,4 @@ public class Stream02 {
 
     }
 }
+

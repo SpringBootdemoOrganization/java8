@@ -2,7 +2,6 @@ package com.zhihao.stream01;
 
 import java.util.Arrays;
 import java.util.List;
-
 public class StreamTest3 {
 
     //有个整型的list，中的每个元素都乘以，然后求和

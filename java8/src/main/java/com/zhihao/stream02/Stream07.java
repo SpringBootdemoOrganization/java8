@@ -5,11 +5,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Stream07 {
-    //Ã¿¸öÔªËØµÄÔªËØÈ¥³ı¿Õ¸ñÈ»ºóÈ¥ÖØ
+    //æ¯ä¸ªå…ƒç´ çš„å…ƒç´ å»é™¤ç©ºæ ¼ç„¶åå»é‡
     public static void main(String[] args) {
         List<String> list = Arrays.asList("hello world","world hello","hello world hello","hello welcome");
 
-        //²¢Ã»ÓĞÊµÏÖËü
+        //å¹¶æ²¡æœ‰å®ç°å®ƒ
         /*
         List<String> resultList = new ArrayList<>();
         list.stream().map(item -> {
@@ -19,7 +19,9 @@ public class Stream07 {
         }).distinct().forEach(System.out::println);
         */
 
-        //flapMapµÄÕıÈ·Ê¹ÓÃ£¬Êµ¼Ê³¡¾°¾­³£ÓÃµ½£¬½«µÃµ½µÄStream<String[]> ´òÆ½³ÉStream<String>
+        System.out.println("å¼€å§‹");
+
+        //flapMapçš„æ­£ç¡®ä½¿ç”¨ï¼Œå®é™…åœºæ™¯ç»å¸¸ç”¨åˆ°ï¼Œå°†å¾—åˆ°çš„Stream<String[]> æ‰“å¹³æˆStream<String>
         List<String> resultList = list.stream().map(item -> item.split(" ")).
                 flatMap(Arrays::stream).distinct().collect(Collectors.toList());
 

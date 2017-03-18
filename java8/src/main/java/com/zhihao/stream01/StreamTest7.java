@@ -1,3 +1,4 @@
+
 package com.zhihao.stream01;
 
 import java.util.ArrayList;
@@ -9,14 +10,14 @@ import java.util.stream.Stream;
 
 public class StreamTest7 {
     public static void main(String[] args) {
-          //转换为ArrayList
+        //杞崲涓篈rrayList
         Stream<String> stream = Stream.of("hello","world","hello World");
         List<String> list = stream.collect(Collectors.toCollection(ArrayList::new));
         list.forEach(System.out::println);
 
         System.out.println("....................");
 
-        //转换为Set
+        //杞崲涓篠et
         Stream<String> stream2 = Stream.of("hello","world","hello World");
         Set<String> set = stream2.collect(Collectors.toCollection(HashSet::new));
         System.out.println(set.getClass());
@@ -24,7 +25,7 @@ public class StreamTest7 {
 
         System.out.println("......................");
 
-        //将流中的数据转换为String,joining方法的说明是返回一个Collector对象（将输入的每个元素拼接起来以遇到的顺序）
+        //灏嗘祦涓殑鏁版嵁杞崲涓篠tring,joining鏂规硶鐨勮鏄庢槸杩斿洖涓�涓狢ollector瀵硅薄锛堝皢杈撳叆鐨勬瘡涓厓绱犳嫾鎺ヨ捣鏉ヤ互閬囧埌鐨勯『搴忥級
         Stream<String> stream3 = Stream.of("hello","world","hello World");
         String str = stream3.collect(Collectors.joining()).toString();
         System.out.println(str);

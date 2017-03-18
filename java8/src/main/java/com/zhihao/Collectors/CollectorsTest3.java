@@ -25,6 +25,11 @@ public class CollectorsTest3 {
 
         System.out.println(".........................");
 
+        peoples.stream().collect(Collectors.groupingBy(People::getCity,TreeMap::new,
+                Collectors.mapping(People::getLastName,Collectors.toSet())));
+
+        System.out.println(".........................");
+
         List<String> stringList = peoples.stream().map(People::getLastName).collect(Collectors.collectingAndThen(Collectors.toList(),
                 Collections::unmodifiableList));
         System.out.println(stringList);

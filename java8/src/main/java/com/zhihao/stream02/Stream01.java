@@ -5,7 +5,7 @@ import java.util.IntSummaryStatistics;
 import java.util.stream.Stream;
 
 /**
- * ÕÒ³ö¸ÃÁ÷ÖÐ´óÓÚ2µÄÔªËØ£¬È»ºó½«Ã¿¸öÔªËØ³ËÒÔ2£¬È»ºóºöÂÔÁ÷ÖÐµÄÇ°¶þ¸öÔªËØ£¬È»ºóÔÙÈ¡Á÷ÖÐµÄÇ°Á½¸öÔªËØ£¬×îºóÇó³öÔªËØµÄ×ÜºÍ¡£
+ * æ‰¾å‡ºè¯¥æµä¸­å¤§äºŽ2çš„å…ƒç´ ï¼Œç„¶åŽå°†æ¯ä¸ªå…ƒç´ ä¹˜ä»¥2ï¼Œç„¶åŽå¿½ç•¥æµä¸­çš„å‰äºŒä¸ªå…ƒç´ ï¼Œç„¶åŽå†å–æµä¸­çš„å‰ä¸¤ä¸ªå…ƒç´ ï¼Œæœ€åŽæ±‚å‡ºå…ƒç´ çš„æ€»å’Œã€‚
  */
 public class Stream01 {
     public static void main(String[] args) {
@@ -13,11 +13,11 @@ public class Stream01 {
 //        int sum = stream.filter(i -> i>2).mapToInt(i -> i *2).skip(2).limit(2).sum();
 //        System.out.println(sum);
 
-          //maxºÍmin·½·¨·µ»ØµÄÊÇOptionalInt£¬ÒòÎªÈç¹ûÔÚÃ»ÓÐ×îÐ¡Öµ»òÕß×î´óÖµµÄÊ±ºò»áÅ×³öÒì³£
+        //maxå’Œminæ–¹æ³•è¿”å›žçš„æ˜¯OptionalIntï¼Œå› ä¸ºå¦‚æžœåœ¨æ²¡æœ‰æœ€å°å€¼æˆ–è€…æœ€å¤§å€¼çš„æ—¶å€™ä¼šæŠ›å‡ºå¼‚å¸¸
         stream.filter(i -> i>200).mapToInt(i -> i *2).skip(2).limit(2).max().ifPresent(System.out::println);
 
-        //Èç¹ûÎÒÏëÒª·ûºÏÌõ¼þµÄ×î´óÖµ£¬×îÐ¡Öµ£¬ºÍ£¬ÄÇÃ´ÔõÃ´×öÄØ£¿,Èç¹ûÃ»ÓÐ·ûºÏÌõ¼þµÄÖµ£¬ÄÇÃ´IntSummaryStatistics
-        //ÖÐ¶¨ÒåÁËÕûÐÍµÄ×î´óÖµºÍ×îÐ¡Öµ£¬ÒÔ±ãÔÚ¿ª·¢ÖÐÅ×³öÒì³£
+        //å¦‚æžœæˆ‘æƒ³è¦ç¬¦åˆæ¡ä»¶çš„æœ€å¤§å€¼ï¼Œæœ€å°å€¼ï¼Œå’Œï¼Œé‚£ä¹ˆæ€Žä¹ˆåšå‘¢ï¼Ÿ,å¦‚æžœæ²¡æœ‰ç¬¦åˆæ¡ä»¶çš„å€¼ï¼Œé‚£ä¹ˆIntSummaryStatistics
+        //ä¸­å®šä¹‰äº†æ•´åž‹çš„æœ€å¤§å€¼å’Œæœ€å°å€¼ï¼Œä»¥ä¾¿åœ¨å¼€å‘ä¸­æŠ›å‡ºå¼‚å¸¸
         IntSummaryStatistics intSummaryStatistics = stream.filter(i -> i>2).mapToInt(i -> i *2).
                 skip(2).limit(2).summaryStatistics();
         System.out.println(intSummaryStatistics.getMin());

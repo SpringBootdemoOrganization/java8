@@ -14,21 +14,21 @@ public class StudentStream {
         Student stu4 = new Student("zhangsan",80,40);
 
         List<Student> studentList = Arrays.asList(stu1,stu2,stu3,stu4);
-//        Map<String,List<Student>> resultMap = studentList.stream().collect(Collectors.groupingBy(student -> student.getName()));
-//        Map<String,List<Student>> resultMap = studentList.stream().collect(Collectors.groupingBy(Student::getName));
+        //Map<String,List<Student>> resultMap = studentList.stream().collect(Collectors.groupingBy(student -> student.getName()));
+       // Map<String,List<Student>> resultMap = studentList.stream().collect(Collectors.groupingBy(Student::getName));
 
-        //¸ù¾İscore½øĞĞ·Ö×é
+        //æ ¹æ®scoreè¿›è¡Œåˆ†ç»„
 //        Map<Integer,List<Student>> resultMap = studentList.stream().collect(Collectors.groupingBy(Student::getScore));
 
-        //Ïàµ±ÓÚselect name,count(*) from student order by name
-        //Map<String,Long> resultMap = studentList.stream().collect(Collectors.groupingBy(Student::getName,Collectors.counting()));
+        //ç›¸å½“äºselect name,count(*) from student order by name
+        Map<String,Long> resultMap = studentList.stream().collect(Collectors.groupingBy(Student::getName,Collectors.counting()));
 
-        //·Ö×éÇó·ÖÊıµÄÆ½¾ùÖµ
+        //åˆ†ç»„æ±‚åˆ†æ•°çš„å¹³å‡å€¼
         //Map<String,Double> resultMap = studentList.stream().collect(Collectors.groupingBy(Student::getName,Collectors.averagingDouble(Student::getScore)));
 
-        Map<Boolean,List<Student>> resultMap = studentList.stream().collect(Collectors.partitioningBy(stu -> stu.getScore() >= 90));
-        List<Student> students = resultMap.get(true);
-        System.out.println(students);
+        //Map<Boolean,List<Student>> resultMap = studentList.stream().collect(Collectors.partitioningBy(stu -> stu.getScore() >= 90));
+        //List<Student> students = resultMap.get(true);
+        //System.out.println(students);
         System.out.println(resultMap);
     }
 }

@@ -7,7 +7,7 @@ import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
 /**
- * ²¢ĞĞÁ÷Óë´®ĞĞÁ÷µÄÖ´ĞĞĞ§ÂÊ¶Ô±È
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë´®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ï¿½Ğ§ï¿½Ê¶Ô±ï¿½
  */
 public class Stream05 {
     public static void main(String[] args) {
@@ -17,15 +17,16 @@ public class Stream05 {
             list.add(UUID.randomUUID().toString());
         }
 
-        System.out.println("ÅÅĞò¿ªÊ¼");
+
+        System.out.println("æ’åºå¼€å§‹");
 
         long startTime =System.nanoTime();
 
-        //´®ĞĞÁ÷²Ù×÷Ê±¼äºÍ²¢ĞĞÁ÷²Ù×÷Ê±¼äÉÏµÄ²îÒì£¬
-        list.stream().sorted().count();
-//        list.parallelStream().sorted().count();
+        //ä¸²è¡Œæ“ä½œæ—¶é—´ä¸å¹¶è¡Œæ“ä½œæ—¶é—´ä¸Šçš„å·®å¼‚
+        //list.stream().sorted().count();
+        list.parallelStream().sorted().count();
 
-        System.out.println("ÅÅĞò½áÊø");
+        System.out.println("æ’åºç»“æŸ");
 
         long endTime = System.nanoTime();
 

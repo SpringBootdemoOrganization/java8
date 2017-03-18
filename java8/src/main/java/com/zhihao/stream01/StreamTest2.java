@@ -8,11 +8,11 @@ public class StreamTest2 {
         IntStream.of(new int[]{5,6,7}).forEach(System.out::println);
         System.out.println("...........");
 
-        //°üº¬×ó±ß²»°üº¬ÓÒ±ß
+        //åŒ…å«å·¦è¾¹ä¸åŒ…å«å³è¾¹
         IntStream.range(3,8).forEach(System.out::println);
         System.out.println("............");
 
-        //°üº¬×ó±ß°üº¬ÓÒ±ß
+        //åŒ…å«å·¦è¾¹åŒ…å«å³è¾¹
         IntStream.rangeClosed(3,8).forEach(System.out::println);
     }
 }

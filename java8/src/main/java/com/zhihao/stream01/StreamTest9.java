@@ -3,17 +3,21 @@ package com.zhihao.stream01;
 import java.util.UUID;
 import java.util.stream.Stream;
 
+
 public class StreamTest9 {
     public static void main(String[] args) {
         Stream<String> stream = Stream.generate(UUID.randomUUID()::toString);
-        //findFirstÊÇÒ»¸ö¶ÌÂ·µÄÖÕ¶Ë²Ù×÷
-        stream.findFirst().ifPresent(System.out::println);
 
-        //findFirst·µ»ØÒ»¸öOptional¶ÔÏó£¬ifPresentµÄÕıÈ·ÓÃ·¨
+        stream.limit(10).forEach(System.out::println);
+        //findFirstæ˜¯ä¸€ä¸ªçŸ­è·¯çš„ç»ˆç«¯æ“ä½œ
+        //stream.findFirst().ifPresent(System.out::println);
+
+        //findFirstè¿”å›ä¸€ä¸ªOptionalå¯¹è±¡ï¼ŒifPresentçš„æ­£ç¡®ç”¨æ³•
         Stream<String> stream2 = Stream.empty();
         stream2.findFirst().ifPresent(System.out::println);
 
-        //iterate·µ»ØµÄÊÇÒ»¸öÎŞÏŞÁ÷£¬²¢ÇÒÑ­»·Ö´ĞĞf(i),f(f(i)),f(f(f(i))),Ò»°ã¶¼»á¼ÓÉÏlimitÀ´ÏŞÖÆ´ÎÊı
+        //iterateè¿”å›çš„æ˜¯ä¸€ä¸ªæ— é™æµï¼Œå¹¶ä¸”å¾ªç¯æ‰§è¡Œf(i),f(f(i)),f(f(f(i))),ä¸€èˆ¬éƒ½ä¼šåŠ ä¸Šlimitæ¥é™åˆ¶æ¬¡æ•°
         Stream.iterate(1,i -> i+2).limit(6).forEach(System.out::println);
     }
 }
+
