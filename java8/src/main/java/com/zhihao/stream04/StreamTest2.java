@@ -13,49 +13,49 @@ public class StreamTest2 {
 
         List<Student> students = Arrays.asList(student1,student2,student3,student4,student5);
 
-        //ÕÒ³öStudentÁĞ±íÖĞ·ÖÊı×îĞ¡µÄÑ§Éú
+        //æ‰¾å‡ºStudentåˆ—è¡¨ä¸­åˆ†æ•°æœ€å°çš„å­¦ç”Ÿ
         students.stream().collect(Collectors.minBy(Comparator.comparingInt(Student::getScore))).ifPresent(System.out::println);
 
-        //ÕÒ³öStudentÁĞ±íÖĞ·ÖÊı×î´óµÄÑ§Éú
+        //æ‰¾å‡ºStudentåˆ—è¡¨ä¸­åˆ†æ•°æœ€å¤§çš„å­¦ç”Ÿ
         students.stream().collect(Collectors.maxBy(Comparator.comparingInt(Student::getScore))).ifPresent(System.out::println);
 
-        //ÕÒ³öÑ§ÉúÁĞ±íÖĞ·ÖÊıµÄÆ½¾ùÖµ
+        //æ‰¾å‡ºå­¦ç”Ÿåˆ—è¡¨ä¸­åˆ†æ•°çš„å¹³å‡å€¼
         Double scoreAver = students.stream().collect(Collectors.averagingInt(Student::getScore));
         System.out.println(scoreAver);
 
-        //Ëã³öÑ§Éú·ÖÊıµÄ×ÜºÍ
+        //ç®—å‡ºå­¦ç”Ÿåˆ†æ•°çš„æ€»å’Œ
         int scoreTotal = students.stream().collect(Collectors.summingInt(Student::getScore));
         System.out.println(scoreTotal);
 
         IntSummaryStatistics intSummaryStatistics =  students.stream().collect(Collectors.summarizingInt(Student::getScore));
         System.out.println(intSummaryStatistics); //IntSummaryStatistics{count=4, sum=360, min=80, average=90.000000, max=100}
 
-        //½«studentÁĞ±íÖĞµÄĞÕÃûÆ´½ÓÆğÀ´£¬
+        //å°†studentåˆ—è¡¨ä¸­çš„å§“åæ‹¼æ¥èµ·æ¥ï¼Œ
         System.out.println(students.stream().map(student -> student.getName()).collect(Collectors.joining()));
         System.out.println(students.stream().map(student -> student.getName()).collect(Collectors.joining(", ")));
         System.out.println(students.stream().map(student -> student.getName()).collect(Collectors.joining(", ","<begin> "," <end>")));
 
-        //ÏÈÊ¹ÓÃ·ÖÊı½øĞĞ·Ö×é£¬È»ºóÊ¹ÓÃÃû×Ö½øĞĞ·Ö×é
+        //å…ˆä½¿ç”¨åˆ†æ•°è¿›è¡Œåˆ†ç»„ï¼Œç„¶åä½¿ç”¨åå­—è¿›è¡Œåˆ†ç»„
         Map<Integer,Map<String,List<Student>>> map =students.stream().collect(Collectors.groupingBy(Student::getScore,Collectors.groupingBy(Student::getName)));
         System.out.println(map);
 
-        //·ÖÊı´óÓÚ80µÄÔÚÒ»¸ö·ÖÇø£¬Ğ¡ÓÚ80µÄÔÚÒ»¸ö·ÖÇø
+        //åˆ†æ•°å¤§äº80çš„åœ¨ä¸€ä¸ªåˆ†åŒºï¼Œå°äº80çš„åœ¨ä¸€ä¸ªåˆ†åŒº
         Map<Boolean,List<Student>> map2 = students.stream().collect(Collectors.partitioningBy(student -> student.getScore() >= 80));
         System.out.println(map2);
 
-        //·ÖÊı´óÓÚ80µÄÔÚÒ»¸ö·ÖÇø£¬Ğ¡ÓÚ80µÄÔÚÒ»¸ö·ÖÇø£¬È»ºó´óÓÚ80ÖĞÔÙ´Î·ÖÇø£¨´óÓÚ90µÄ½øĞĞ·ÖÇø£©
+        //åˆ†æ•°å¤§äº80çš„åœ¨ä¸€ä¸ªåˆ†åŒºï¼Œå°äº80çš„åœ¨ä¸€ä¸ªåˆ†åŒºï¼Œç„¶åå¤§äº80ä¸­å†æ¬¡åˆ†åŒºï¼ˆå¤§äº90çš„è¿›è¡Œåˆ†åŒºï¼‰
         Map<Boolean,Map<Boolean,List<Student>>> map3 = students.stream().collect(Collectors.partitioningBy(student -> student.getScore() >= 80,
                 Collectors.partitioningBy(student -> student.getScore() >= 90)));
         System.out.println(map3);
 
-        //·ÖÊı´óÓÚ80µÄÏÈ·ÖÇø£¬È»ºóÍ³¼Æ¸÷ÇøµÄ¸öÊı
+        //åˆ†æ•°å¤§äº80çš„å…ˆåˆ†åŒºï¼Œç„¶åç»Ÿè®¡å„åŒºçš„ä¸ªæ•°
         Map<Boolean,Long> map4 = students.stream().collect(
                 Collectors.partitioningBy(student -> student.getScore()>80,Collectors.counting()));
         System.out.println(map4);
 
-        //¸ù¾İÃû×Ö·Ö×é£¬ÔÚµÃµ½Ã¿×éÑ§ÉúÖĞ·ÖÊı×îµÍµÄÑ§Éú
+        //æ ¹æ®åå­—åˆ†ç»„ï¼Œåœ¨å¾—åˆ°æ¯ç»„å­¦ç”Ÿä¸­åˆ†æ•°æœ€ä½çš„å­¦ç”Ÿ
         Map<String,Student> map5 = students.stream().collect(Collectors.groupingBy(Student::getName, Collectors.collectingAndThen(
-                Collectors.minBy(Comparator.comparingInt(Student::getScore)),Optional::get)));
+                Collectors.minBy(Comparator.comparingInt(Student::getScore)), Optional::get)));
         System.out.println(map5);
 
 

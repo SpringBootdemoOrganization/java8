@@ -21,9 +21,9 @@ public class MySetCollector2<T> implements Collector<T,Set<T>,Map<T,T>>{
     public BiConsumer<Set<T>, T> accumulator() {
         System.out.println("accumulator invoke!");
         return (set,item) -> {
-            //Èç¹ûÊÇstream£¨µ¥Ïß³ÌÁ÷£¬ÄÇÃ´Ö´ĞĞµÄÏß³ÌÊÇÍ¬Ò»¸ö£¬Èç¹ûÊÇ²¢·¢Á÷·¢ÏÖÃ¿¸öÏß³Ì¼¸ºõ¶¼²»Ò»Ñù
-            //ÔÚcharacteristics·½·¨ÖĞ¼ÓÈëCharacteristics.CONCURRENTÃ¶¾ÙÊôĞÔ£¬ÔÚ¶à´ÎÖ´ĞĞÊ±»áÅ×³ö
-            // ConcurrentModificationException£¨²¢·¢ĞŞ¸ÄÒì³££©
+            //å¦‚æœæ˜¯streamï¼ˆå•çº¿ç¨‹æµï¼Œé‚£ä¹ˆæ‰§è¡Œçš„çº¿ç¨‹æ˜¯åŒä¸€ä¸ªï¼Œå¦‚æœæ˜¯å¹¶å‘æµå‘ç°æ¯ä¸ªçº¿ç¨‹å‡ ä¹éƒ½ä¸ä¸€æ ·
+            //åœ¨characteristicsæ–¹æ³•ä¸­åŠ å…¥Characteristics.CONCURRENTæšä¸¾å±æ€§ï¼Œåœ¨å¤šæ¬¡æ‰§è¡Œæ—¶ä¼šæŠ›å‡º
+            // ConcurrentModificationExceptionï¼ˆå¹¶å‘ä¿®æ”¹å¼‚å¸¸ï¼‰
             System.out.println("accumulator==="+"set=="+set+""+Thread.currentThread().getName());
             set.add(item);
         };
@@ -50,18 +50,18 @@ public class MySetCollector2<T> implements Collector<T,Set<T>,Map<T,T>>{
 
     public Set<Characteristics> characteristics() {
         System.out.println("characteristics invoke!");
-        return Collections.unmodifiableSet(EnumSet.of(Characteristics.UNORDERED,Characteristics.CONCURRENT));
+        return Collections.unmodifiableSet(EnumSet.of(Characteristics.UNORDERED));
         //return Collections.unmodifiableSet(EnumSet.of(Characteristics.UNORDERED));
         //Indicates that the finisher function is the identity function and can be elided.  If set, it must be the
         // case that an unchecked cast from A to R will succeed.
-        //IDENTITY_FINISHµÄÒâË¼¾ÍÊÇ±íÃû finisherº¯ÊıÊÇÍ¬Ò»ĞÔº¯Êı¿ÉÒÔ±»È¡Ïû£¬Èç¹ûÊÇset£¬Äã±ØĞëÈ·±£Ò»¸öÎ´¾­¼ì²éµÄ×ª»»´ÓAµ½R¿ÉÒÔ³É¹¦Ö´ĞĞ£¬Èç¹û²»³É¹¦¾Í»áÅÅ³ıÒì³£
-        //¶øÎÒÃÇÕâ±ßÈç¹û¼ÓÉÏCharacteristics.IDENTITY_FINISH±íÃûÖĞ¼äÈİÆ÷ÀàĞÍºÍ½á¹ûÀàĞÍÒ»ÖÂ£¬ºÜÃ÷ÏÔÊÇ´íÎóµÄ¡£
+        //IDENTITY_FINISHçš„æ„æ€å°±æ˜¯è¡¨å finisherå‡½æ•°æ˜¯åŒä¸€æ€§å‡½æ•°å¯ä»¥è¢«å–æ¶ˆï¼Œå¦‚æœæ˜¯setï¼Œä½ å¿…é¡»ç¡®ä¿ä¸€ä¸ªæœªç»æ£€æŸ¥çš„è½¬æ¢ä»Aåˆ°Rå¯ä»¥æˆåŠŸæ‰§è¡Œï¼Œå¦‚æœä¸æˆåŠŸå°±ä¼šæŠ›å‡ºå¼‚å¸¸
+        //è€Œæˆ‘ä»¬è¿™è¾¹å¦‚æœåŠ ä¸ŠCharacteristics.IDENTITY_FINISHè¡¨åä¸­é—´å®¹å™¨ç±»å‹å’Œç»“æœç±»å‹ä¸€è‡´ï¼Œå¾ˆæ˜æ˜¾æ˜¯é”™è¯¯çš„ã€‚
         //return Collections.unmodifiableSet(EnumSet.of(Characteristics.UNORDERED,Characteristics.IDENTITY_FINISH));
     }
 
     public static void main(String[] args) {
 
-        //µ±Ç°Ö÷»úµÄºËĞÄÊı£¨Ê¹ÓÃÁË³¬Ïß³Ì£¬Ò»¸öÄÚºËÍ¨³£±»µ±×÷¶ş¸öºËĞÄÊıÀ´´¦Àí£©
+        //å½“å‰ä¸»æœºçš„æ ¸å¿ƒæ•°ï¼ˆä½¿ç”¨äº†è¶…çº¿ç¨‹ï¼Œä¸€ä¸ªå†…æ ¸é€šå¸¸è¢«å½“ä½œäºŒä¸ªæ ¸å¿ƒæ•°æ¥å¤„ç†ï¼‰
         System.out.println(Runtime.getRuntime().availableProcessors());
         for (int i = 0; i <1 ; i++) {
             List<String> list = Arrays.asList("hello","world","hello world","hello","a","b","f","e","k","j","q");
@@ -71,8 +71,8 @@ public class MySetCollector2<T> implements Collector<T,Set<T>,Map<T,T>>{
 
             System.out.println(set);
 
-            Map<String,String> map = list.stream().collect(new MySetCollector2<>());
-            //Map<String,String> map = list.parallelStream().collect(new MySetCollector2<>());
+            //Map<String,String> map = list.stream().collect(new MySetCollector2<>());
+            Map<String,String> map = list.parallelStream().collect(new MySetCollector2<>());
             System.out.println(map);
         }
 

@@ -22,7 +22,7 @@ public class MySetCollector<T> implements Collector<T,Set<T>,Set<T>>{
         return Set<T>::add;
     }
 
-    //Ö»ÓĞ²¢·¢µÄÊ±ºò²ÅÈ¥µ÷ÓÃ
+    //åªæœ‰å¹¶å‘çš„æ—¶å€™æ‰å»è°ƒç”¨
     @Override
     public BinaryOperator<Set<T>> combiner() {
         System.out.println("BinaryOperator invoke!");
@@ -32,7 +32,7 @@ public class MySetCollector<T> implements Collector<T,Set<T>,Set<T>>{
         };
     }
 
-    //ÒòÎªÎÒÃÇÕâ±ßµÄ×îÖÕµÄ·µ»Ø½á¹ûÀàĞÍºÍÖĞ¼äÈİÆ÷µÄÀàĞÍÊÇÒ»ÖÂµÄ£¬Ò²¿ÉÒÔÅ×³öÒì³£
+    //å› ä¸ºæˆ‘ä»¬è¿™è¾¹çš„æœ€ç»ˆçš„è¿”å›ç»“æœç±»å‹å’Œä¸­é—´å®¹å™¨çš„ç±»å‹æ˜¯ä¸€è‡´çš„ï¼Œä¹Ÿå¯ä»¥æŠ›å‡ºå¼‚å¸¸
     @Override
     public Function<Set<T>, Set<T>> finisher() {
         System.out.println("finisher invoke!");
@@ -43,7 +43,7 @@ public class MySetCollector<T> implements Collector<T,Set<T>,Set<T>>{
     @Override
     public Set<Characteristics> characteristics() {
         System.out.println("characteristics invoke!");
-        //IDENTITY_FINISH±íÊ¾accumulatorºÍfinisherº¯ÊıÊÇÒ»ÖÂµÄ£¬¶øUNORDERED±íÊ¾ÎŞĞòµÄ
+        //IDENTITY_FINISHè¡¨ç¤ºaccumulatorå’Œfinisherå‡½æ•°æ˜¯ä¸€è‡´çš„ï¼Œè€ŒUNORDEREDè¡¨ç¤ºæ— åºçš„
         return Collections.unmodifiableSet(EnumSet.of(Characteristics.IDENTITY_FINISH,Characteristics.UNORDERED));
     }
 

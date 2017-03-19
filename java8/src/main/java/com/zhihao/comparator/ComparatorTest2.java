@@ -8,7 +8,7 @@ public class ComparatorTest2 {
         List<String> list = Arrays.asList("nihao","hello","world","welcome");
 
         //default <U> Comparator<T> thenComparing(Function<? super T, ? extends U> keyExtractor,Comparator<? super U> keyComparator)
-        //的使用方式，虽然这个demo没有显示出排序的结果
+        //鐨勪娇鐢ㄦ柟寮忥紝铏界劧杩欎釜demo娌℃湁鏄剧ず鍑烘帓搴忕殑缁撴灉
         Collections.sort(list, Comparator.comparingInt(String::length).reversed().thenComparing(item -> {
             System.out.println(RandowString()+item);
             return RandowString()+item;

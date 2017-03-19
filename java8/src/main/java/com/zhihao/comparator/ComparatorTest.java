@@ -8,42 +8,42 @@ public class ComparatorTest {
         //list.sort(String::compareToIgnoreCase);
         //Collections.sort(list);
 
-        //°´ÕÕÔªËØµÄ³¤¶È½øĞĞÅÅĞò
+        //æŒ‰ç…§å…ƒç´ çš„é•¿åº¦è¿›è¡Œæ’åº
         //Collections.sort(list,(item1,item2) -> item1.length() -item2.length());
 
-        //°´ÕÕÔªËØ³¤¶È½µĞòÅÅĞò
+        //æŒ‰ç…§å…ƒç´ é•¿åº¦é™åºæ’åº
         //Collections.sort(list, (item1,item2) -> item2.length()-item1.length());
-        //ÁíÍâÒ»ÖÖÊµÏÖ
+        //å¦å¤–ä¸€ç§å®ç°
         //Collections.sort(list, Comparator.comparingInt(String::length).reversed());
 
-        //ÎªÊ²Ã´Õâ±ßÓÃlambda±í´ïÊ½µÄ·½Ê½»á±¨´íÄØ£¿´ËÊ±·¢ÏÖitemµÄÀàĞÍÊÇObjectÀàĞÍ,ÎªÊ²Ã´Õâ±ßµÄitemÊÇ±àÒëÆ÷ÎŞ·¨ÍÆ¶Ï³öÀ´ÄØ£¿
-        //ÒòÎªÕâ±ßµÄÔ´ÂëÊÇ±íÃûÕâ¸öµÄ²ÎÊıÊÇlistÖĞµÄÃ¿¸öÔªËØµÄ<? super T>£¬TÀàĞÍ¼°Æä¸¸Àà£¬Õâ±ßµÄTÊÇString
-        //É¾³ıreversed±àÒëÆ÷¾Í¿ÉÒÔÍÆ¶Ï³öÀ´itemÔªËØµÄÀàĞÍ£¬
+        //ä¸ºä»€ä¹ˆè¿™è¾¹ç”¨lambdaè¡¨è¾¾å¼çš„æ–¹å¼ä¼šæŠ¥é”™å‘¢ï¼Ÿæ­¤æ—¶å‘ç°itemçš„ç±»å‹æ˜¯Objectç±»å‹,ä¸ºä»€ä¹ˆè¿™è¾¹çš„itemæ˜¯ç¼–è¯‘å™¨æ— æ³•æ¨æ–­å‡ºæ¥å‘¢ï¼Ÿ
+        //å› ä¸ºè¿™è¾¹çš„æºç æ˜¯è¡¨åè¿™ä¸ªçš„å‚æ•°æ˜¯listä¸­çš„æ¯ä¸ªå…ƒç´ çš„<? super T>ï¼ŒTç±»å‹åŠå…¶çˆ¶ç±»ï¼Œè¿™è¾¹çš„Tæ˜¯String
+        //åˆ é™¤reversedç¼–è¯‘å™¨å°±å¯ä»¥æ¨æ–­å‡ºæ¥itemå…ƒç´ çš„ç±»å‹ï¼Œ
         //Collections.sort(list,Comparator.comparingInt(item -> item.length()).reversed());
 
-        //¶şÕßµÈ¼ÛµÄ
+        //äºŒè€…ç­‰ä»·çš„
         //Collections.sort(list,Comparator.comparingInt((String item) -> item.length()).reversed());
         //list.sort(Comparator.comparingInt(String::length).reversed());
 
-        //ÏÈ¸ù¾İÔªËØµÄ³¤¶È½øĞĞÅÅĞòÈ»ºó¸ù¾İËüµÄ×ÖÄ¸µÄË³Ğò½øĞĞÅÅĞò
+        //å…ˆæ ¹æ®å…ƒç´ çš„é•¿åº¦è¿›è¡Œæ’åºç„¶åæ ¹æ®å®ƒçš„å­—æ¯çš„é¡ºåºè¿›è¡Œæ’åº
         //Collections.sort(list,Comparator.comparingInt(String::length).thenComparing(String.CASE_INSENSITIVE_ORDER));
         //Collections.sort(list,Comparator.comparingInt(String::length).
-                //thenComparing((item1,item2) -> item1.compareToIgnoreCase(item2)));
+        //thenComparing((item1,item2) -> item1.compareToIgnoreCase(item2)));
         //Collections.sort(list,Comparator.comparing(String::length).thenComparing(
-                //Comparator.comparing(String::toLowerCase)));
+        //Comparator.comparing(String::toLowerCase)));
 
-        //ÏÈ¸ù¾İÔªËØµÄ³¤¶È½øĞĞÅÅĞò£¬È»ºó¸ù¾İ×ÖÄ¸µÄÄæĞò½øĞĞÅÅĞò
+        //å…ˆæ ¹æ®å…ƒç´ çš„é•¿åº¦è¿›è¡Œæ’åºï¼Œç„¶åæ ¹æ®å­—æ¯çš„é€†åºè¿›è¡Œæ’åº
         //Collections.sort(list,Comparator.comparingInt(String::length).
-                //thenComparing(Comparator.comparing(String::toLowerCase,Comparator.reverseOrder())));
+        //thenComparing(Comparator.comparing(String::toLowerCase,Comparator.reverseOrder())));
 
-        //ÏÈÊÇ°´ÕÕ³¤¶ÈµÄµ¹Ğò£¬È»ºóÔÙ¸ù¾İĞĞÂğµÄµ¹Ğò
+        //å…ˆæ˜¯æŒ‰ç…§é•¿åº¦çš„å€’åºï¼Œç„¶åå†æ ¹æ®å­—æ¯è‡ªç„¶é¡ºåºçš„å€’åº
         Collections.sort(list,Comparator.comparingInt(String::length).reversed().
                 thenComparing(Comparator.comparing(String::toLowerCase,Comparator.reverseOrder())));
 
 
         Collections.sort(list,Comparator.comparingInt(String::length).reversed().thenComparing
                 (Comparator.comparing(String::toLowerCase,Comparator.reverseOrder()))
-                //ÕâÒ»²½ÊÇÃ»ÓĞ·¢Éú×÷ÓÃµÄ£¬¶øÉÏÃæµÄËùÓĞÔªËØ¶¼ÒÑ¾­Í¨¹ı±È½ÏÆ÷±È½Ï³ö½á¹ûÁË
+                //è¿™ä¸€æ­¥æ˜¯æ²¡æœ‰å‘ç”Ÿä½œç”¨çš„ï¼Œè€Œä¸Šé¢çš„æ‰€æœ‰å…ƒç´ éƒ½å·²ç»é€šè¿‡æ¯”è¾ƒå™¨æ¯”è¾ƒå‡ºç»“æœäº†
                 .thenComparing(Comparator.reverseOrder()));
 
         System.out.println(list);

@@ -18,7 +18,7 @@ public class CollectorsTest4 {
         int sum2 = integerList.stream().reduce(0,(a,b) -> a+b);
         System.out.println(sum2);
 
-        //ÑéÖ¤µÄ¾ÍÊÇµ±¼¯ºÏÖĞµÄÃ»ÓĞÔªËØµÄÊ±ºò·µ»Øidentity²ÎÊıÖµ
+        //éªŒè¯çš„å°±æ˜¯å½“é›†åˆä¸­çš„æ²¡æœ‰å…ƒç´ çš„æ—¶å€™è¿”å›identityå‚æ•°å€¼
         int sum3 = new ArrayList<Integer>().stream().reduce(9,(a,b) -> a+b);
         System.out.println(sum3);
     }
