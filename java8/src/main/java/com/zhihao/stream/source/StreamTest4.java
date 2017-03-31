@@ -9,9 +9,10 @@ public class StreamTest4 {
 
         System.out.println(list.getClass());//class java.util.Arrays$ArrayList
 
+        list.stream().map(item -> item).forEach(System.out::println);
 
-        list.stream().forEach(System.out::println);
+        //list.stream().forEach(System.out::println);
 
-        list.stream().map(item -> item).filter(item -> true).forEach(System.out::println);
+        //list.stream().map(item -> item).filter(item -> true).forEach(System.out::println);
     }
 }
