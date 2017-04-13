@@ -20,6 +20,7 @@ public class Java8TimeTest {
 
         System.out.println("------------------");
 
+        //月份和日
         LocalDate localDate3 = LocalDate.of(2017,3,25);
         MonthDay monthDay = MonthDay.of(localDate3.getMonth(),localDate3.getDayOfMonth());
         MonthDay monthDay2 = MonthDay.from(LocalDate.of(2014,3,25));
